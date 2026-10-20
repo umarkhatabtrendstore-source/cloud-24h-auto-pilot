@@ -20,7 +20,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y ffmpeg
 
       - name: Install Dependencies
-        run: pip install edge-tts requests google-api-python-client google-auth-oauthlib
+        run: pip install pillow edge-tts requests google-api-python-client google-auth-oauthlib numpy
 
       - name: Run Auto Producer Engine
         run: python cloud_24h_auto_pilot.py
