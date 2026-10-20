@@ -23,4 +23,4 @@ jobs:
         run: pip install edge-tts requests google-api-python-client google-auth-oauthlib
 
       - name: Run Auto Producer Engine
-        run: python drive_auto_producer.py
+        run: python cloud_24h_auto_pilot.py
