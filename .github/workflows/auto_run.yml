@@ -1,0 +1,26 @@
+name: Umar 6-Hour Cloud Auto Producer
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+jobs:
+  produce-and-post:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install FFmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Install Dependencies
+        run: pip install edge-tts requests google-api-python-client google-auth-oauthlib
+
+      - name: Run Auto Producer Engine
+        run: python drive_auto_producer.py
